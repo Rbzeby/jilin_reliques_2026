@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>吉博文物复活计划 · 何以吉林 和合共生</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1412'/%3E%3Cpath d='M14 46 L30 18 L40 34 L46 26 L52 46 Z' fill='none' stroke='%23C9A24B' stroke-width='3' stroke-linejoin='round'/%3E%3Ccircle cx='30' cy='18' r='3' fill='%23C9A24B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ===== Token ===== */
+:root{
+  --ink:#0B1412;
+  --ink-2:#0E1B17;
+  --jade:#1E3A32;
+  --jade-2:#25473C;
+  --gold:#C9A24B;
+  --gold-soft:#E5C879;
+  --gold-dim:#8A7140;
+  --bone:#F0E8D8;
+  --bone-dim:#C9BFA9;
+  --clay:#A65A3E;
+  --clay-2:#7E4230;
+  --line:rgba(201,162,75,.28);
+  --serif:"Noto Serif SC",serif;
+  --sans:"Noto Sans SC",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--ink);
+  color:var(--bone);
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(201,162,75,.35);color:#fff}
+img{display:block;max-width:100%}
+a{color:var(--gold-soft);text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ===== 背景纹理层 ===== */
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(201,162,75,.5), transparent 60%),
+    radial-gradient(900px 500px at 90% 30%, rgba(62,120,94,.5), transparent 60%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+#app{position:relative;z-index:1}
+
+/* ===== 布局工具 ===== */
+.wrap{width:min(1100px,92vw);margin:0 auto}
+.sec{padding:88px 0}
+.sec-head{margin-bottom:44px}
+.sec-kicker{
+  font-size:12px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;
+  margin-bottom:14px;display:flex;align-items:center;gap:14px;
+}
+.sec-kicker::before{content:"";width:38px;height:1px;background:var(--gold)}
+.sec-title{font-family:var(--serif);font-weight:900;font-size:clamp(26px,4.2vw,40px);line-height:1.25;letter-spacing:.04em}
+.sec-sub{color:var(--bone-dim);margin-top:12px;max-width:640px;font-weight:300}
+
+/* ===== 顶部导航 ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px max(20px,4vw);
+  background:linear-gradient(180deg,rgba(11,20,18,.92),rgba(11,20,18,.72) 70%,transparent);
+  backdrop-filter:blur(6px);
+  transition:background .3s;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;letter-spacing:.14em;font-size:15px;color:var(--bone)}
+.nav-brand svg{width:26px;height:26px}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{color:var(--bone-dim);font-size:13.5px;letter-spacing:.18em;transition:color .25s}
+.nav-links a:hover{color:var(--gold-soft)}
+.nav-cta{
+  border:1px solid var(--line);color:var(--gold-soft);
+  font-size:13px;letter-spacing:.2em;padding:8px 18px;border-radius:2px;
+  transition:background .3s,border-color .3s;
+}
+.nav-cta:hover{background:rgba(201,162,75,.12);border-color:var(--gold)}
+@media (max-width:720px){
+  .nav-links{display:none}
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  padding:120px 0 72px;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(11,20,18,.55),rgba(11,20,18,.88) 60%,var(--ink)),
+    url("assets/museum-hall-1.jpg") center/cover no-repeat;
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 420px at 78% 30%, rgba(201,162,75,.14), transparent 65%);
+}
+.hero-inner{width:min(1100px,92vw);margin:0 auto}
+.hero-seal{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--line);padding:9px 20px;border-radius:2px;
+  font-size:12px;letter-spacing:.34em;color:var(--gold-soft);margin-bottom:34px;
+  background:rgba(11,20,18,.5);
+}
+.hero-seal svg{width:16px;height:16px;flex:none}
+.hero h1{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(40px,8vw,84px);line-height:1.08;letter-spacing:.06em;
+  color:var(--bone);
+}
+.hero h1 .stroke{
+  color:transparent;
+  -webkit-text-stroke:1.5px var(--gold-soft);
+}
+.hero-sub{
+  margin-top:26px;font-size:clamp(15px,1.8vw,19px);color:var(--bone-dim);
+  font-weight:300;max-width:560px;letter-spacing:.06em;
+}
+.hero-ctas{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 30px;font-size:14.5px;letter-spacing:.22em;
+  border-radius:2px;transition:all .3s;
+}
+.btn-gold{background:var(--gold);color:var(--ink);font-weight:600}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--bone)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);background:rgba(201,162,75,.08)}
+.hero-meta{
+  position:absolute;bottom:36px;left:max(20px,4vw);right:max(20px,4vw);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;letter-spacing:.2em;color:var(--bone-dim);
+}
+.hero-meta b{color:var(--gold-soft);font-weight:600;font-size:20px;font-family:var(--serif)}
+
+/* ===== 数字栏 ===== */
+.stats{background:var(--ink-2);border-top:1px solid rgba(201,162,75,.16);border-bottom:1px solid rgba(201,162,75,.16)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,162,75,.14)}
+.stat{padding:34px 20px;text-align:center;background:var(--ink-2)}
+.stat b{display:block;font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:900;color:var(--gold-soft)}
+.stat span{font-size:12.5px;letter-spacing:.24em;color:var(--bone-dim)}
+@media (max-width:720px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== 文物复活主区 ===== */
+.reliques{background:var(--ink)}
+.reliques .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.revive-hint{color:var(--bone-dim);font-size:13px;letter-spacing:.1em;display:flex;align-items:center;gap:8px}
+.revive-hint .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--gold);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+.relique-card{
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  gap:0;margin-bottom:22px;background:var(--jade);
+  border:1px solid rgba(201,162,75,.18);border-radius:3px;overflow:hidden;
+  transition:border-color .4s;
+}
+.relique-card.revived{border-color:rgba(229,200,121,.7)}
+.relique-card.revived::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(229,200,121,.14) 48%,transparent 66%);
+  background-size:250% 100%;
+  animation:scan 3.2s ease-in-out infinite;
+}
+@keyframes scan{0%{background-position:120% 0}100%{background-position:-20% 0}}
+
+.r-img{position:relative;min-height:320px;overflow:hidden}
+.r-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.r-img .revive-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
+  opacity:0;pointer-events:none;transition:opacity .9s ease;
+}
+.relique-card:hover .r-img img{transform:scale(1.05)}
+.relique-card.revived .r-img img[data-img]{transform:scale(1)}
+.relique-card.revived .revive-img{
+  opacity:1;animation:floatTalk 3s ease-in-out infinite;
+}
+@keyframes floatTalk{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-10px) scale(1.02)}
+}
+.r-img::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 55%,rgba(30,58,50,.9) 100%);
+}
+.r-tag{
+  position:absolute;top:18px;left:18px;z-index:3;
+  border:1px solid var(--line);background:rgba(11,20,18,.66);
+  padding:6px 14px;font-size:12px;letter-spacing:.26em;color:var(--gold-soft);
+  backdrop-filter:blur(4px);
+}
+.r-body{padding:clamp(24px,3.4vw,44px);display:flex;flex-direction:column;justify-content:center;position:relative}
+.r-era{font-size:12px;letter-spacing:.34em;color:var(--gold);margin-bottom:12px}
+.r-name{font-family:var(--serif);font-weight:900;font-size:clamp(24px,3vw,34px);letter-spacing:.04em;color:var(--bone);line-height:1.3}
+.r-en{font-size:12px;letter-spacing:.3em;color:var(--bone-dim);margin-top:6px}
+.r-desc{margin-top:16px;color:var(--bone-dim);font-weight:300;font-size:14.5px;max-width:46ch}
+.r-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.revive-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--gold);color:var(--ink);font-weight:700;
+  padding:12px 24px;font-size:14px;letter-spacing:.18em;border-radius:2px;
+  transition:all .3s;
+}
+.revive-btn:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.revive-btn svg{width:15px;height:15px;flex:none}
+.revive-btn:disabled{background:var(--gold-dim);cursor:default;transform:none}
+.detail-link{
+  font-size:13.5px;letter-spacing:.16em;color:var(--bone-dim);
+  border-bottom:1px solid rgba(201,162,75,.4);padding-bottom:2px;transition:color .25s;
+}
+.detail-link:hover{color:var(--gold-soft)}
+
+/* 复活气泡（视频原话台词，底部通栏） */
+.bubble{
+  position:absolute;left:14px;right:14px;bottom:14px;z-index:5;max-width:none;
+  background:rgba(9,16,14,.92);border:1px solid var(--gold);border-radius:3px;
+  padding:14px 16px;font-size:13.5px;color:var(--bone);line-height:1.65;
+  box-shadow:0 12px 40px rgba(0,0,0,.5);opacity:0;transform:translateY(14px);
+  pointer-events:none;transition:all .5s cubic-bezier(.22,1,.36,1);
+}
+.bubble.show{opacity:1;transform:translateY(0)}
+.bubble::before{
+  content:"";position:absolute;left:50%;top:-7px;
+  width:12px;height:12px;background:rgba(9,16,14,.92);
+  border-left:1px solid var(--gold);border-top:1px solid var(--gold);
+  transform:translateX(-50%) rotate(45deg);
+}
+.bubble em{color:var(--gold-soft);font-style:normal;display:block;margin-top:8px;font-size:11.5px;letter-spacing:.18em}
+
+@media (max-width:860px){
+  .relique-card{grid-template-columns:1fr}
+  .r-img{min-height:240px}
+  .r-img::after{background:linear-gradient(0deg,transparent 50%,rgba(30,58,50,.85) 100%)}
+  .bubble{left:12px;right:12px;bottom:12px}
+}
+
+/* ===== 群像区 ===== */
+.gallery{background:var(--ink-2)}
+.g-banner{position:relative;border-radius:3px;overflow:hidden;margin-bottom:30px;border:1px solid rgba(201,162,75,.16)}
+.g-banner img{width:100%;height:clamp(180px,26vw,300px);object-fit:cover;object-position:center 40%}
+.g-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,18,.1),rgba(11,20,18,.78))}
+.g-banner-cap{
+  position:absolute;left:20px;bottom:16px;z-index:2;
+  font-size:12.5px;letter-spacing:.2em;color:var(--bone);font-weight:300;
+}
+.g-banner-cap::before{content:"◈ ";color:var(--gold)}
+.g-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.g-chip{
+  border:1px solid var(--line);padding:7px 16px;font-size:12.5px;letter-spacing:.14em;
+  color:var(--bone-dim);border-radius:2px;transition:all .25s;
+}
+.g-chip:hover{color:var(--gold-soft);border-color:var(--gold)}
+.g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g-item{
+  position:relative;border:1px solid rgba(201,162,75,.16);border-radius:3px;overflow:hidden;
+  background:var(--jade);min-height:230px;display:flex;flex-direction:column;
+  transition:border-color .3s,transform .3s;
+}
+.g-item:hover{border-color:var(--gold);transform:translateY(-4px)}
+.g-icon{
+  height:150px;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(220px 110px at 50% 110%,rgba(201,162,75,.16),transparent 70%);
+  border-bottom:1px solid rgba(201,162,75,.12);
+  overflow:hidden;
+}
+.g-icon img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+.g-item:hover .g-icon img{transform:scale(1.05)}
+.g-icon svg{width:56px;height:56px}
+.g-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.g-name{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--bone)}
+.g-era{font-size:11.5px;letter-spacing:.24em;color:var(--gold)}
+.g-desc{font-size:12.5px;color:var(--bone-dim);font-weight:300;line-height:1.6}
+.g-item .g-cta{
+  margin-top:auto;font-size:12.5px;letter-spacing:.14em;color:var(--gold-soft);
+  display:inline-flex;align-items:center;gap:6px;border:none;padding:0;background:none;
+}
+.g-item .g-cta svg{width:13px;height:13px;transition:transform .25s}
+.g-item:hover .g-cta svg{transform:translateX(4px)}
+@media (max-width:980px){.g-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.g-grid{grid-template-columns:1fr}}
+
+/* ===== 时间轴 ===== */
+.timeline-sec{background:var(--ink)}
+.tl{display:grid;grid-template-columns:96px 56px minmax(0,1fr);gap:0;position:relative}
+.tl-row{display:contents}
+.tl-time{
+  text-align:right;padding:26px 16px 26px 0;
+  font-family:var(--serif);font-weight:700;color:var(--gold-soft);font-size:16px;
+  align-self:center;
+}
+.tl-axis{position:relative;align-self:stretch}
+.tl-axis::before{
+  content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(201,162,75,.55) 8%,rgba(201,162,75,.55) 92%,transparent);
+}
+.tl-dot{
+  position:absolute;top:50%;left:50%;width:13px;height:13px;
+  border-radius:50%;background:var(--ink);border:2px solid var(--gold);
+  transform:translate(-50%,-50%);
+}
+.tl-dot::after{
+  content:"";position:absolute;inset:-5px;border-radius:50%;
+  border:1px solid rgba(201,162,75,.4);animation:pulse 2.6s infinite;
+}
+.tl-body{padding:26px 0 26px 22px;border-left:none}
+.tl-body h3{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--bone);letter-spacing:.05em}
+.tl-body p{margin-top:8px;color:var(--bone-dim);font-weight:300;font-size:14px;max-width:56ch}
+.tl-body .tl-item{margin-top:6px;font-size:13px;color:var(--gold-soft)}
+@media (max-width:640px){
+  .tl{grid-template-columns:70px 34px minmax(0,1fr)}
+  .tl-body{padding-left:16px}
+}
+
+/* ===== 模态 ===== */
+.modal{
+  position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  background:rgba(5,9,8,.82);backdrop-filter:blur(5px);padding:20px;
+}
+.modal.open{display:flex}
+.modal-box{
+  width:min(860px,96vw);max-height:88vh;overflow:auto;
+  background:var(--ink-2);border:1px solid var(--line);border-radius:4px;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);
+  animation:modalIn .38s cubic-bezier(.22,1,.36,1);
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(26px) scale(.98)}to{opacity:1;transform:none}}
+.modal-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.modal-img{position:relative;min-height:280px}
+.modal-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.modal-body{padding:clamp(22px,3vw,38px)}
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:5;
+  width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+  color:var(--bone);font-size:18px;background:rgba(11,20,18,.6);backdrop-filter:blur(3px);
+  transition:all .25s;
+}
+.modal-close:hover{border-color:var(--gold);color:var(--gold-soft);transform:rotate(90deg)}
+.modal-era{font-size:12px;letter-spacing:.3em;color:var(--gold);margin-bottom:10px}
+.modal-name{font-family:var(--serif);font-weight:900;font-size:clamp(22px,2.6vw,30px);letter-spacing:.04em}
+.modal-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0}
+.mf{border:1px solid rgba(201,162,75,.16);padding:12px 14px;border-radius:2px}
+.mf b{display:block;font-size:11px;letter-spacing:.22em;color:var(--gold);margin-bottom:4px}
+.mf span{font-size:13.5px;color:var(--bone)}
+.modal-story{color:var(--bone-dim);font-weight:300;font-size:14.5px;line-height:1.9}
+.modal-story p+p{margin-top:10px}
+.modal-voice{
+  margin-top:20px;padding:16px 18px;border-left:3px solid var(--gold);
+  background:rgba(201,162,75,.07);font-size:14px;color:var(--bone);
+}
+.modal-voice b{color:var(--gold-soft);font-family:var(--serif)}
+@media (max-width:760px){
+  .modal-grid{grid-template-columns:1fr}
+  .modal-img{min-height:220px}
+  .modal-facts{grid-template-columns:1fr}
+}
+
+/* ===== 页脚 ===== */
+.footer{border-top:1px solid rgba(201,162,75,.18);background:var(--ink-2);padding:56px 0 40px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
+.footer h4{font-family:var(--serif);font-size:15px;color:var(--gold-soft);letter-spacing:.14em;margin-bottom:14px}
+.footer p,.footer li{color:var(--bone-dim);font-size:13px;font-weight:300;line-height:1.9}
+.footer ul{list-style:none}
+.footer .src-link{color:var(--bone-dim);border-bottom:1px solid rgba(201,162,75,.3)}
+.footer .src-link:hover{color:var(--gold-soft)}
+.footer-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(201,162,75,.14);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12px;letter-spacing:.12em;color:var(--bone-dim)}
+@media (max-width:760px){.footer-grid{grid-template-columns:1fr}}
+
+/* ===== 空态/低动效 ===== */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero{min-height:auto}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* ===== 滚动揭示 ===== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.revealed{opacity:1;transform:none}
+
+/* ===== Toast ===== */
+.toast{
+  position:fixed;left:50%;bottom:32px;transform:translate(-50%,16px);z-index:120;
+  background:var(--ink-2);border:1px solid var(--gold);color:var(--bone);
+  padding:12px 22px;font-size:13.5px;letter-spacing:.04em;border-radius:2px;
+  opacity:0;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.5);
+  transition:opacity .35s,transform .35s;max-width:min(560px,88vw);
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+/* ===== 门票入场弹层 ===== */
+.ticket-modal{
+  position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:26px;padding:20px;
+  background:radial-gradient(1200px 640px at 50% 32%, rgba(24,42,34,.93), rgba(6,12,10,.98));
+  backdrop-filter:blur(6px);
+  animation:ticketFade .55s ease;
+}
+@keyframes ticketFade{from{opacity:0}to{opacity:1}}
+.ticket-modal.closing{opacity:0;transition:opacity .55s ease}
+.ticket{
+  position:relative;display:flex;max-width:min(720px,94vw);width:100%;
+  background:linear-gradient(158deg,#f6edd8,#e9dbba);
+  border:1px solid #c9a24b;border-radius:6px;overflow:hidden;
+  box-shadow:0 32px 84px rgba(0,0,0,.6), inset 0 0 0 4px rgba(122,89,33,.28), inset 0 0 46px rgba(122,89,33,.18);
+  color:#2c2417;
+}
+.ticket.tearing{transform:rotate(-2deg) scale(1.03)}
+.ticket.tearing .t-main{transform:translateX(-52%) rotate(-8deg);opacity:0}
+.ticket.tearing .t-stub{transform:translateX(52%) rotate(8deg);opacity:0}
+.t-half{transition:transform .62s cubic-bezier(.22,1,.36,1), opacity .62s ease}
+.t-main{flex:1 1 64%;padding:30px 28px 26px;position:relative}
+.t-stub{
+  flex:0 0 36%;background:linear-gradient(158deg,#efe2bf,#e4d1a6);
+  border-left:1px dashed rgba(122,89,33,.6);padding:22px 18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;
+}
+.t-perf{
+  position:absolute;left:calc(64% - 12px);top:0;bottom:0;width:24px;pointer-events:none;
+  background:repeating-linear-gradient(to bottom, transparent 0 9px, rgba(122,89,33,.55) 9px 11px);
+}
+.t-perf::before,.t-perf::after{
+  content:"";position:absolute;left:-1px;width:26px;height:26px;border-radius:50%;background:#0a120e;
+}
+.t-perf::before{top:-13px}
+.t-perf::after{bottom:-13px}
+.t-top{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;letter-spacing:.14em;color:#8a6a2f;border-bottom:1px solid rgba(138,106,47,.45);padding-bottom:10px;gap:10px}
+.t-top b{font-size:15px;letter-spacing:.2em;color:#5c451c;font-weight:700}
+.t-title{
+  margin-top:20px;font-size:clamp(30px,6vw,44px);font-weight:900;letter-spacing:.08em;
+  color:#3a2c10;font-family:"Noto Serif SC","Songti SC","STSong",serif;
+}
+.t-sub{margin-top:8px;font-size:13.5px;letter-spacing:.22em;color:#7c6127}
+.t-row{display:flex;gap:12px;margin-top:22px}
+.t-cell{flex:1;border:1px solid rgba(138,106,47,.5);background:rgba(255,252,240,.55);border-radius:3px;padding:10px 8px;text-align:center}
+.t-cell b{display:block;font-size:15px;letter-spacing:.05em;color:#42310f;font-family:"Noto Serif SC","Songti SC",serif}
+.t-cell span{display:block;margin-top:4px;font-size:11px;letter-spacing:.16em;color:#9a7b3e}
+.t-stamp{
+  position:absolute;top:46px;right:22px;width:74px;height:74px;border-radius:50%;
+  border:2.5px solid rgba(178,52,44,.85);color:rgba(178,52,44,.88);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-size:15px;font-weight:700;line-height:1.35;letter-spacing:.18em;
+  transform:rotate(-14deg);opacity:.9;
+}
+.t-note{margin-top:20px;font-size:11.5px;letter-spacing:.14em;color:#9a7b3e}
+.t-stub .t-stamp-2{
+  width:52px;height:52px;border-radius:50%;border:2px solid rgba(178,52,44,.8);color:rgba(178,52,44,.9);
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;letter-spacing:.1em;
+}
+.t-stub .t-tip{font-size:14px;line-height:1.8;letter-spacing:.12em;color:#5c451c;font-weight:600}
+.t-stub .t-tip small{display:block;font-size:10.5px;letter-spacing:.18em;color:#9a7b3e;font-weight:400;margin-top:6px}
+.tear-btn{
+  border:1px solid #c9a24b;background:linear-gradient(160deg,#1e3a30,#14281f);
+  color:#f2e2b0;font-size:17px;letter-spacing:.4em;padding:15px 52px;border-radius:3px;
+  cursor:pointer;font-weight:600;box-shadow:0 14px 34px rgba(0,0,0,.45);
+  transition:all .25s;
+}
+.tear-btn:hover:not(:disabled){background:linear-gradient(160deg,#2a4d3e,#1a3226);box-shadow:0 16px 40px rgba(201,162,75,.28)}
+.tear-btn:disabled{opacity:.55;cursor:default}
+.ticket-hint{text-align:center;font-size:12px;letter-spacing:.3em;color:rgba(242,226,176,.7);margin-top:0}
+@media (max-width:560px){
+  .t-main{padding:20px 16px 18px}
+  .t-stub{padding:16px 10px}
+  .t-stamp{width:58px;height:58px;font-size:12px;top:40px;right:14px}
+  .t-cell b{font-size:13px}
+  .t-row{gap:8px}
+  .t-cell{padding:8px 4px}
+  .t-title{margin-top:16px}
+  .tear-btn{width:min(320px,86vw)}
+}
+
+</style>
+</head>
+<body>
+<div class="ticket-modal" id="ticket-modal" role="dialog" aria-label="博物馆门票">
+  <div class="ticket" id="ticket">
+    <div class="t-perf" aria-hidden="true"></div>
+    <div class="t-half t-main">
+      <div class="t-top"><b>吉林省博物院</b><span>JILIN PROVINCIAL MUSEUM</span></div>
+      <div class="t-title">文物复活特展</div>
+      <div class="t-sub">AIGC 唤醒 · 四件国宝集体苏醒</div>
+      <div class="t-stamp">吉<br>博<br>通<br>行</div>
+      <div class="t-row">
+        <div class="t-cell"><b id="t-date">—</b><span>入场日期</span></div>
+        <div class="t-cell"><b>09:00–17:00</b><span>开放时间</span></div>
+        <div class="t-cell"><b>JL-0001</b><span>门票编号</span></div>
+      </div>
+      <div class="t-note">本票含四件镇馆文物 · 唤醒权限 ×4</div>
+    </div>
+    <div class="t-half t-stub">
+      <div class="t-stamp-2">副券</div>
+      <div class="t-tip">撕开副券<small>THE STUB · ENTRY</small></div>
+      <div class="t-tip" style="font-size:12px;color:#9a7b3e;line-height:1.6">入场参观<br>听文物开口</div>
+    </div>
+  </div>
+  <button class="tear-btn" id="tear-btn">撕 票 入 场</button>
+  <p class="ticket-hint">点击撕开 · 进入展厅</p>
+  <audio id="rip-audio" src="assets/rip.mp3" preload="auto"></audio>
+</div>
+<div id="app">
+
+  <!-- ===== 导航 ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav-brand">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M14 46 L30 18 L40 34 L46 26 L52 46 Z" stroke="#C9A24B" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="30" cy="18" r="3" fill="#C9A24B"/>
+        <circle cx="46" cy="26" r="3" fill="#C9A24B"/>
+      </svg>
+      吉博文物复活计划
+    </div>
+    <ul class="nav-links">
+      <li><a href="#revive">唤醒国宝</a></li>
+      <li><a href="#gallery">文物群像</a></li>
+      <li><a href="#timeline">文明年轮</a></li>
+      <li><a href="#source">参考来源</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('revive').scrollIntoView({behavior:'smooth'})">开始唤醒</button>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-seal">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 L14 9 L21 9 L15.5 13.5 L18 21 L12 16.5 L6 21 L8.5 13.5 L3 9 L10 9 Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        灵感 · AIGC 复活国宝
+      </div>
+      <h1>让沉睡千年的<br><span class="stroke">吉林文物</span>开口说话</h1>
+      <p class="hero-sub">何以中国，和合共生。从松花江畔的鱼形玉佩到白山黑水的抗联单刀，四件镇馆级文物今夜集体苏醒——点击「唤醒」，听它们亲口讲述这片土地的往事。</p>
+      <div class="hero-ctas">
+        <button class="btn btn-gold" onclick="document.getElementById('revive').scrollIntoView({behavior:'smooth'})">唤醒国宝</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">浏览文物群像</button>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div><b>12万+</b>&nbsp; 吉林省博物院藏品总数</div>
+      <div><b>295</b>&nbsp; 件一级文物</div>
+      <div><b>7000</b>&nbsp; 年前 · 最早鱼形文物</div>
+      <div><b>1933</b>&nbsp; 抗联少年营成立</div>
+    </div>
+  </header>
+
+  <!-- ===== 数据栏 ===== -->
+  <section class="stats" aria-label="吉林省博物院概况">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat"><b>12万+</b><span>馆藏文物</span></div>
+        <div class="stat"><b>295</b><span>一级文物</span></div>
+        <div class="stat"><b>3379</b><span>二级文物</span></div>
+        <div class="stat"><b>1968</b><span>丙午神钩出土年</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 核心文物 · 复活区 ===== -->
+  <section class="sec reliques" id="revive">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-kicker">Wake the Relics</div>
+          <h2 class="sec-title">四件国宝 · 等待苏醒</h2>
+          <p class="sec-sub">它们已在展柜中沉睡多年。点击「唤醒」，AIGC 气息注入，文物将开口讲述自己的前世今生。</p>
+        </div>
+        <div class="revive-hint"><span class="dot"></span>点击「唤醒」让文物开口</div>
+      </div>
+
+      <div class="relique-card" id="card-shengou">
+        <div class="r-img">
+          <span class="r-tag">国家一级文物 · 禁出境展览</span>
+          <img src="assets/bingwu-shengou-1.jpg" alt="东汉错金银丙午神钩铜带钩" data-img="shengou">
+          <img class="revive-img" src="assets/revive-shengou.jpg" alt="丙午神钩拟人形象">
+          <div class="bubble" data-bubble="shengou">「诶呀妈呀，各位老妹老弟，欢迎来咱吉林省博物院，我是带钩，搁这躺了2000多年了，今天咱就唠唠咱吉林这旮旯从古至今的那些事。咱吉林这地方从古到今故事老鼻子了。」</div>
+        </div>
+        <div class="r-body">
+          <div class="r-era">东 汉 · EASTERN HAN</div>
+          <h3 class="r-name">错金银"丙午神钩"铜带钩</h3>
+          <div class="r-en">GOLD-INLAID BELT HOOK, "BINGWU SHENGOU"</div>
+          <p class="r-desc">通长15.7厘米，钩身铸一鸟喙神人双手抱鱼，通体错金银，镶嵌11颗红蓝宝石与绿松石。汉中央王朝赐予夫余国贵族的国礼，是古人对「高迁」最浪漫的期许。</p>
+          <div class="r-actions">
+            <button class="revive-btn" data-revive="shengou">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3 L4 14 H10 L9 21 L18 10 H12 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              唤醒
+            </button>
+            <button class="detail-link" data-detail="shengou">查看详情</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relique-card" id="card-yushi">
+        <div class="r-img">
+          <span class="r-tag">新石器时代 · 距今约7000年</span>
+          <img src="assets/yuxing-yushi-1.jpg" alt="新石器时代鱼形玉饰件" data-img="yushi">
+          <img class="revive-img" src="assets/revive-yushi.jpg" alt="鱼形玉饰拟人形象">
+          <div class="bubble" data-bubble="yushi">「各位好啊！我是鱼形玉饰，搁这松花江边上传了五六千年了！那时候咱这旮旯，鱼老多了，捞都捞不完！现在查干湖冬捕，那就是咱老祖宗传下来的手艺！」</div>
+        </div>
+        <div class="r-body">
+          <div class="r-era">新石器时代 · NEOLITHIC</div>
+          <h3 class="r-name">鱼形玉饰件</h3>
+          <div class="r-en">FISH-SHAPED JADE ORNAMENT</div>
+          <p class="r-desc">青玉质地，通体磨光，呈椭圆形，一端圆孔与「＞」形豁口组合，恰似鱼首。1986年出土于长岭县腰井子遗址，是松花江畔先民渔猎生活的缩影。</p>
+          <div class="r-actions">
+            <button class="revive-btn" data-revive="yushi">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3 L4 14 H10 L9 21 L18 10 H12 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              唤醒
+            </button>
+            <button class="detail-link" data-detail="yushi">查看详情</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relique-card" id="card-meiping">
+        <div class="r-img">
+          <span class="r-tag">国家一级文物 · 金代定窑</span>
+          <img src="assets/dingyao-meiping-1.jpg" alt="定窑白釉梅瓶" data-img="meiping">
+          <img class="revive-img" src="assets/revive-meiping.jpg" alt="定窑白釉梅瓶拟人形象">
+          <div class="bubble" data-bubble="meiping">「咋样？咱吉林这旮旯，我是定窑白釉梅瓶，搁舒兰出土的，来咱吉林锅包肉、杀猪菜、小鸡炖蘑菇，那叫一个香。」</div>
+        </div>
+        <div class="r-body">
+          <div class="r-era">金 · JIN DYNASTY</div>
+          <h3 class="r-name">定窑白釉梅瓶</h3>
+          <div class="r-en">DING WARE WHITE MEIPING VASE</div>
+          <p class="r-desc">小口、短颈、丰肩、瘦底、圈足，线条流畅秀美，被誉为「中国瓷器第一造型」。1980年出土于舒兰市完颜希尹家族墓地，胎细釉润，莹白如雪。</p>
+          <div class="r-actions">
+            <button class="revive-btn" data-revive="meiping">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3 L4 14 H10 L9 21 L18 10 H12 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              唤醒
+            </button>
+            <button class="detail-link" data-detail="meiping">查看详情</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relique-card" id="card-dandao">
+        <div class="r-img">
+          <span class="r-tag">国家一级文物 · 抗联遗珍</span>
+          <img src="assets/kanglian-dandao-1.jpg" alt="东北抗联少年营铁铸单刀" data-img="dandao">
+          <img class="revive-img" src="assets/revive-dandao.jpg" alt="抗联单刀拟人形象">
+          <div class="bubble" data-bubble="dandao">「我是抗联武器，搁长白山里出土的，那时候条件苦，冬天零下三四十度，那还等啥呀？赶紧来咱吉林旅游吧，看看咱的文物，尝尝咱的美食，感受咱的热情。吉林欢迎你！」</div>
+        </div>
+        <div class="r-body">
+          <div class="r-era">1933 · 东北抗日联军</div>
+          <h3 class="r-name">东北抗联少年营铁铸单刀</h3>
+          <div class="r-en">IRON BLADE OF THE YOUTH BATTALION</div>
+          <p class="r-desc">长95厘米，刀体扁月形，锈迹斑斑。东北人民革命军第一军独立师少年营创建时仅有的两把单刀之一，曾随70余名13至18岁的少年转战磐石林海、浴血白山黑水。</p>
+          <div class="r-actions">
+            <button class="revive-btn" data-revive="dandao">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3 L4 14 H10 L9 21 L18 10 H12 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              唤醒
+            </button>
+            <button class="detail-link" data-detail="dandao">查看详情</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 文物群像 ===== -->
+  <section class="sec gallery" id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">More of Jilin</div>
+        <h2 class="sec-title">吉林文物群像</h2>
+        <p class="sec-sub">一座博物院，半部东北史。高句丽、渤海、辽金遗珍与历代书画汇聚于此，每一件都藏着白山松水的记忆。</p>
+      </div>
+      <div class="g-banner">
+        <img src="assets/museum-hall-2.jpg" alt="吉林省博物院展厅">
+        <div class="g-banner-cap">辽石雕彩绘塔 · 吉林省博物院展陈</div>
+      </div>
+      <div class="g-grid">
+
+        <div class="g-item">
+          <div class="g-icon" aria-hidden="true">
+            <img src="assets/gallery-qidan-mirror.jpg" alt="契丹文八角铜镜">
+          </div>
+          <div class="g-body">
+            <div class="g-era">辽 · 1971年大安出土</div>
+            <div class="g-name">契丹文八角铜镜</div>
+            <p class="g-desc">直径26厘米，镜背铸契丹字铭文，是辽代制镜与契丹文字的珍贵合璧，吉林省博物院十大国宝之一。</p>
+            <button class="g-cta" onclick="openRelic('契丹文八角铜镜')">了解更多<svg viewBox="0 0 24 24" fill="none"><path d="M5 12 H19 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <div class="g-item">
+          <div class="g-icon" aria-hidden="true">
+            <img src="assets/gallery-sushi-scroll.jpg" alt="苏轼《洞庭春色赋》行书卷">
+          </div>
+          <div class="g-body">
+            <div class="g-era">北宋 · 传世墨宝</div>
+            <div class="g-name">苏轼《洞庭春色赋》行书卷</div>
+            <p class="g-desc">苏轼传世行书名迹，与《中山松醪赋》合卷，吉林省博物院镇馆级书画，被誉为「国宝级」藏品。</p>
+            <button class="g-cta" onclick="openRelic('苏轼《洞庭春色赋》行书卷')">了解更多<svg viewBox="0 0 24 24" fill="none"><path d="M5 12 H19 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <div class="g-item">
+          <div class="g-icon" aria-hidden="true">
+            <img src="assets/gallery-wenji.jpg" alt="张瑀《文姬归汉图》">
+          </div>
+          <div class="g-body">
+            <div class="g-era">金 · 传世名画</div>
+            <div class="g-name">张瑀《文姬归汉图》</div>
+            <p class="g-desc">金代画家张瑀名作，描绘蔡文姬归汉场景，人物鞍马刻画精绝，是中国绘画史经典之作。</p>
+            <button class="g-cta" onclick="openRelic('张瑀《文姬归汉图》')">了解更多<svg viewBox="0 0 24 24" fill="none"><path d="M5 12 H19 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <div class="g-item">
+          <div class="g-icon" aria-hidden="true">
+            <img src="assets/gallery-baihua.jpg" alt="杨婕妤《百花图》卷">
+          </div>
+          <div class="g-body">
+            <div class="g-era">南宋 · 传世名画</div>
+            <div class="g-name">杨婕妤《百花图》卷</div>
+            <p class="g-desc">南宋宫廷画家杨婕妤长卷，绘四季花卉，工致清雅，为吉林省博物院书画重宝之一。</p>
+            <button class="g-cta" onclick="openRelic('杨婕妤《百花图》卷')">了解更多<svg viewBox="0 0 24 24" fill="none"><path d="M5 12 H19 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <div class="g-item">
+          <div class="g-icon" aria-hidden="true">
+            <img src="assets/gallery-stupa.jpg" alt="辽石雕彩绘塔">
+          </div>
+          <div class="g-body">
+            <div class="g-era">辽 · 石雕艺术</div>
+            <div class="g-name">石雕彩绘塔</div>
+            <p class="g-desc">辽代石塔雕饰彩绘，层檐华美，是研究辽代建筑与彩绘艺术的重要实物。</p>
+            <button class="g-cta" onclick="openRelic('辽石雕彩绘塔')">了解更多<svg viewBox="0 0 24 24" fill="none"><path d="M5 12 H19 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <div class="g-item">
+          <div class="g-icon" aria-hidden="true">
+            <img src="assets/gallery-yubei.jpg" alt="汉白玉耳杯">
+          </div>
+          <div class="g-body">
+            <div class="g-era">汉 · 玉器珍品</div>
+            <div class="g-name">白玉耳杯</div>
+            <p class="g-desc">汉代玉质耳杯，温润如脂，为宴饮之器，尽显汉代贵族生活之雅。</p>
+            <button class="g-cta" onclick="openRelic('汉白玉耳杯')">了解更多<svg viewBox="0 0 24 24" fill="none"><path d="M5 12 H19 M13 6 L19 12 L13 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 时间轴 ===== -->
+  <section class="sec timeline-sec" id="timeline">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">Time of Jilin</div>
+        <h2 class="sec-title">文明年轮 · 七千年时光刻度</h2>
+        <p class="sec-sub">从新石器时代的第一枚玉鱼，到白山黑水间的抗日烽火，吉林大地的文明脉络沿松花江一路铺展。</p>
+      </div>
+      <div class="tl">
+        <div class="tl-row">
+          <div class="tl-time">约7000年前</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <h3>腰井子遗址 · 鱼形玉饰件</h3>
+            <p>松原长岭县腰井子村北岗，先民在此渔猎定居。1986年出土的青玉鱼形饰件，用一枚圆孔与豁口勾勒出鱼首，把「靠水吃水」写进玉里。</p>
+            <div class="tl-item">代表文物：鱼形玉饰件（白城市博物馆藏）</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">约6000年前</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <h3>左家山遗址 · 曲体玉龙</h3>
+            <p>长春农安左家山遗址出土曲体玉龙，红山文化风格，是东北早期玉文化在吉林大地的实证。</p>
+            <div class="tl-item">代表文物：左家山曲体玉龙</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">东汉</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <h3>丙午神钩 · 赐予夫余的国礼</h3>
+            <p>汉中央王朝以错金银工艺制成这枚带钩，赐予东北夫余国贵族。1968年于榆树市刘家乡福利村重见天日，铭文八字，期许「君必高迁」。</p>
+            <div class="tl-item">代表文物：错金银「丙午神钩」铜带钩</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">辽</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <h3>契丹文八角铜镜 · 大安出土</h3>
+            <p>1971年出土于大安县红岗村。镜背铸契丹文字铭文，辽代制镜工艺与契丹文字的罕见合璧，诉说草原与中原的交融。</p>
+            <div class="tl-item">代表文物：辽契丹文八角铜镜</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">金</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <h3>定窑白釉梅瓶 · 随葬完颜希尹家族</h3>
+            <p>1980年出土于舒兰市小城乡完颜希尹家族墓地。金朝开国功臣家族墓中，随葬这件定窑白瓷——莹白温润，见证女真贵族对中原瓷艺的珍爱。</p>
+            <div class="tl-item">代表文物：定窑白釉梅瓶</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">1933</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <h3>抗联少年营 · 铁铸单刀</h3>
+            <p>东北人民革命军第一军独立师少年营在磐石成立，70余名少年（最小13岁）握枪持刀，转战林海雪原。这把单刀是营队创建时仅有的两把之一。</p>
+            <div class="tl-item">代表文物：少年营铁铸单刀</div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">1964</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body">
+            <h3>单刀重见天日 · 入藏吉博</h3>
+            <p>因作战转移被埋于磐石县二道沟的单刀，在开荒中被农民发现，此后郑重移交吉林省博物院，成为国家一级文物。</p>
+            <div class="tl-item">馆藏地：吉林省博物院（东北抗日联军纪念馆）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="footer" id="source">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>吉博文物复活计划</h4>
+          <p>本页以 B 站「AIGC复活国宝｜何以中国 和合共生 天津篇」创意视频为灵感，以 AIGC 之眼唤醒吉林馆藏文物，让历史开口说话。文物资料均来自公开报道与官方介绍，仅供文化科普。</p>
+        </div>
+        <div>
+          <h4>资料与图片来源</h4>
+          <ul>
+            <li><a class="src-link" href="https://www.jlmuseum.net" target="_blank" rel="noopener">吉林省博物院官网</a></li>
+            <li><a class="src-link" href="https://whhlyt.jl.gov.cn" target="_blank" rel="noopener">吉林省文化和旅游厅</a></li>
+            <li><a class="src-link" href="http://www.bcsbwg.net" target="_blank" rel="noopener">白城市博物馆</a></li>
+            <li><a class="src-link" href="http://www.xinhuanet.com/ci/20250109/997a76c90f7949768733691869c99a48/c.html" target="_blank" rel="noopener">新华网「丙午神钩」特稿</a></li>
+            <li><a class="src-link" href="http://www.news.cn/politics/20250824/4ec950abf92848c08cc035152c923569/c.html" target="_blank" rel="noopener">新华社·千年文物交融密码</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>文物出处</h4>
+          <ul>
+            <li>丙午神钩 · 吉林省博物院藏</li>
+            <li>鱼形玉饰件 · 白城市博物馆藏</li>
+            <li>定窑白釉梅瓶 · 吉林省博物院藏</li>
+            <li>少年营铁铸单刀 · 吉林省博物院藏</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>本页为 HTML 创意作品 · 文物图片来自公开网络</div>
+        <div>仅作文化科普 · 参观请前往吉林省博物院</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== 模态框 ===== -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="关闭">×</button>
+      <div class="modal-grid">
+        <div class="modal-img"><img id="modal-img" alt="" src=""></div>
+        <div class="modal-body">
+          <div class="modal-era" id="modal-era"></div>
+          <h3 class="modal-name" id="modal-name"></h3>
+          <div class="modal-facts" id="modal-facts"></div>
+          <div class="modal-story" id="modal-story"></div>
+          <div class="modal-voice" id="modal-voice"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 全部唤醒彩蛋 ===== -->
+  <div class="modal" id="egg-modal" role="dialog" aria-modal="true">
+    <div class="modal-box" style="max-width:560px;text-align:center">
+      <button class="modal-close" id="egg-close" aria-label="关闭">×</button>
+      <div class="modal-body">
+        <div class="modal-era">ALL RELICS AWAKENED</div>
+        <h3 class="modal-name" style="font-size:clamp(22px,3vw,30px)">四件国宝 · 全部苏醒</h3>
+        <p style="margin-top:14px;color:var(--bone-dim);font-weight:300;font-size:14.5px">感谢你逐件唤醒它们。7000 年的吉林故事，正通过每一道裂纹与锈迹，与你相见。</p>
+        <div class="modal-voice" style="text-align:left">「下次来吉林省博物院，记得亲眼看看我们——展柜里的我们，比屏幕上更亮。」</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- something todo -->
+
+</div>
+<script>
+/* ===== 文物详情数据 ===== */
+var RELICS = {
+  shengou: {
+    name: '错金银"丙午神钩"铜带钩',
+    era: '东 汉 · EASTERN HAN',
+    facts: [
+      ['年代','东汉（约公元1—2世纪）'],
+      ['尺寸','通长15.7厘米，宽2.5厘米'],
+      ['出土','1968年榆树市刘家乡福利村'],
+      ['工艺','错金银 · 镶嵌11颗宝石'],
+      ['铭文','丙午神钩，君必高迁'],
+      ['级别','国家一级文物 · 禁出境展览']
+    ],
+    story: '带钩为古代贵族武士所系腰带的挂钩。1968年，这件铜带钩出土于吉林省榆树县（今榆树市）刘家乡福利村，据考证为汉中央王朝赐予夫余国贵族的遗物。钩首为龙头，钩体铸一鸟喙神人双手抱鱼，两眼镶蓝宝石、额镶水滴状绿松石，器身满布错金银丝纹饰；鱼身可灵活摆动而不脱落，源自分段铸造再巧妙拼接。背面错金铭文八字——"丙午神钩，君必高迁"，寄托古人对仕途升迁最浪漫的期许，也是民族交融的珍贵物证。',
+    voice: '「诶呀妈呀，各位老妹老弟，欢迎来咱吉林省博物院，我是带钩，搁这躺了2000多年了，今天咱就唠唠咱吉林这旮旯从古至今的那些事。咱吉林这地方从古到今故事老鼻子了。」'
+  },
+  yushi: {
+    name: '新石器时代鱼形玉饰件',
+    era: '新石器时代 · NEOLITHIC',
+    facts: [
+      ['年代','新石器时代（距今约7000年）'],
+      ['质地','青玉 · 通体磨光'],
+      ['尺寸','最大直径4.4厘米，厚0.3厘米'],
+      ['出土','1986年长岭县腰井子遗址'],
+      ['现藏','白城市博物馆'],
+      ['特征','圆孔与豁口组合成鱼首']
+    ],
+    story: '1986年春，鱼形玉饰件出土于长岭县三十号乡腰井子村北的新石器时代遗址。通体磨光的青玉呈椭圆形，一端钻一圆孔，孔下磨出"＞"形豁口，圆孔与豁口组合在一起，与鱼的头部极其相似；鱼背上一道"U"形口，原是长期佩戴磨损而成的圆孔。玉饰件的出土，既体现了先民对美的追求，也印证了当时以渔猎为主的经济形态。',
+    voice: '「各位好啊！我是鱼形玉饰，搁这松花江边上传了五六千年了！那时候咱这旮旯，鱼老多了，捞都捞不完！现在查干湖冬捕，那就是咱老祖宗传下来的手艺！」'
+  },
+  meiping: {
+    name: '定窑白釉梅瓶',
+    era: '金 · JIN DYNASTY',
+    facts: [
+      ['年代','金代'],
+      ['窑口','定窑（宋代五大名窑之一）'],
+      ['出土','1980年舒兰市小城乡完颜希尹家族墓地'],
+      ['器型','小口短颈 · 丰肩瘦底 · 圈足'],
+      ['特征','胎质细腻，釉色莹白温润'],
+      ['级别','国家一级文物']
+    ],
+    story: '1980年，定窑白釉梅瓶出土于舒兰县（今舒兰市）小城乡完颜希尹家族墓地。完颜希尹是金朝开国功臣、女真大字的创制者，其家族墓中随葬此瓶，足见珍视。梅瓶以小口、短颈、丰肩、瘦底、圈足为特征，线条流畅优美，被誉为"中国瓷器第一造型"；因口小仅可插梅枝得名，宋代时还称"经瓶"，常作储酒之器。定窑以产白瓷驰名，这件梅瓶莹白温润，正是定窑白瓷的代表作。',
+    voice: '「咋样？咱吉林这旮旯，我是定窑白釉梅瓶，搁舒兰出土的，来咱吉林锅包肉、杀猪菜、小鸡炖蘑菇，那叫一个香。」'
+  },
+  dandao: {
+    name: '东北抗联少年营铁铸单刀',
+    era: '1933 · 东北抗日联军',
+    facts: [
+      ['年代','1933年'],
+      ['尺寸','长95厘米'],
+      ['使用者','东北抗联少年营（13—18岁）'],
+      ['发现','1964年磐石县二道沟'],
+      ['级别','国家一级文物'],
+      ['馆藏','吉林省博物院']
+    ],
+    story: '1933年9月18日，东北人民革命军第一军独立师在吉林省磐石县成立，队伍中有一支由青少年组成的少年营，全营约70人——随父母参加抗联的孩子、被解放的童工、只身投奔抗联的孤儿，年龄最大的18岁、最小的13岁。杨靖宇称他们为"少年营"。这把铁铸单刀刀体呈扁月形，是少年营创建时仅有的两把单刀之一。因作战转移，单刀被埋于磐石县二道沟，直到1964年当地农民开荒翻地时才重见天日，后被郑重移交吉林省博物院收藏。刀口的钝痕与锈迹，镌刻着"铁血少年营"浴血奋战的生涯。',
+    voice: '「我是抗联武器，搁长白山里出土的，那时候条件苦，冬天零下三四十度，那还等啥呀？赶紧来咱吉林旅游吧，看看咱的文物，尝尝咱的美食，感受咱的热情。吉林欢迎你！」'
+  },
+
+  /* ===== 群像六件 · 简单简介 ===== */
+  '契丹文八角铜镜': {
+    name: '辽代契丹文八角铜镜',
+    era: '辽 · LIAO DYNASTY',
+    facts: [
+      ['年代','辽代'],
+      ['尺寸','直径26厘米'],
+      ['出土','1971年大安市红岗村'],
+      ['铭文','镜背铸契丹小字五行'],
+      ['地位','吉林省博物院十大国宝之一']
+    ],
+    story: '这面八角铜镜镜背铸有契丹小字五行铭文，大意是"时不再来，命数由天；及时积学，着手发财"一类的人生劝诫。契丹文字作为与西夏文齐名的"失落文字"，传世实物极少，这面铜镜将辽代制镜工艺与契丹文字合于一器，是研究契丹文字与辽代文化的珍贵物证。'
+  },
+  '苏轼《洞庭春色赋》行书卷': {
+    name: '苏轼《洞庭春色赋》行书卷',
+    era: '北宋 · NORTHERN SONG',
+    facts: [
+      ['作者','苏轼'],
+      ['年代','北宋元祐年间'],
+      ['形制','行书长卷'],
+      ['合卷','与《中山松醪赋》合为一卷'],
+      ['馆藏','吉林省博物院镇馆级书画']
+    ],
+    story: '《洞庭春色赋》与《中山松醪赋》均为苏轼晚年贬谪期间的行书长卷名迹，合卷纵28.3厘米、横306.3厘米，共600余字，是苏轼传世墨迹中字数最多的作品。卷首写"洞庭春色"，以黄柑酿酒喻人生豁达，笔势雄劲潇洒、纸墨精良，历经千年仍气色如新，被视为吉林省博物院的"国宝级"书画藏品。'
+  },
+  '张瑀《文姬归汉图》': {
+    name: '金代张瑀《文姬归汉图》',
+    era: '金 · JIN DYNASTY',
+    facts: [
+      ['作者','张瑀（金代画家）'],
+      ['形制','绢本设色'],
+      ['尺寸','纵29厘米，横129厘米'],
+      ['题材','蔡文姬归汉故事'],
+      ['馆藏','吉林省博物院']
+    ],
+    story: '《文姬归汉图》描绘东汉才女蔡文姬从匈奴归汉的旅途场景，画中人物鞍马造型生动、衣纹线条精绝，全卷以动态取势、略去背景，是金代人物画的上乘之作，也是中国绘画史上描绘民族交融的经典名画。'
+  },
+  '杨婕妤《百花图》卷': {
+    name: '南宋杨婕妤《百花图》卷',
+    era: '南宋 · SOUTHERN SONG',
+    facts: [
+      ['作者','杨婕妤（南宋宫廷女画家）'],
+      ['形制','绢本设色长卷'],
+      ['尺寸','纵24厘米，横324厘米'],
+      ['题材','四季花卉十七种'],
+      ['地位','现存最早女性画家作品']
+    ],
+    story: '《百花图》卷为南宋宫廷女画家杨婕妤所作，绘四季花卉十七种，设色淡雅、工致清丽，是中国现存最早的一件女性画家作品。此卷原为收藏家张伯驹所藏，后由其捐献国家，是吉林省博物院的镇院之宝。'
+  },
+  '辽石雕彩绘塔': {
+    name: '辽代石雕彩绘塔',
+    era: '辽 · LIAO DYNASTY',
+    facts: [
+      ['年代','辽代'],
+      ['尺寸','残高96.5厘米'],
+      ['出土','1970年农安县万金塔塔基'],
+      ['质地','灰色砂岩雕成'],
+      ['形制','密檐式舍利塔']
+    ],
+    story: '1970年，这件石雕彩绘塔出土于农安县万金塔地宫。万金塔原为辽代砖塔，二十世纪六十年代因塔体倾斜被拆除，地宫中出土了石函、银函、金函与舍利等珍贵文物，这件石塔即地宫出土的舍利塔。塔身层层密檐、雕饰精美，是研究辽代建筑与佛教艺术的重要实物。'
+  },
+  '汉白玉耳杯': {
+    name: '汉代白玉耳杯',
+    era: '汉 · HAN DYNASTY',
+    facts: [
+      ['年代','汉代（公元前206—220年）'],
+      ['出土','1957年集安县粮库'],
+      ['质地','白玉'],
+      ['用途','宴饮之器'],
+      ['馆藏','吉林省博物院']
+    ],
+    story: '耳杯又称"羽觞"，流行于战国至汉代，多用于盛酒或作食器。这件汉代白玉耳杯呈椭圆形浅腹，两侧带对称耳状把手，玉质温润如脂，是汉代贵族宴饮之器的代表，见证了汉代吉林地区与中原文化的密切往来。'
+  }
+};
+
+/* ===== 复活交互 ===== */
+var revivedCount = 0;
+var TOTAL = 4;
+
+document.querySelectorAll('.revive-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var key = btn.getAttribute('data-revive');
+    var card = document.getElementById('card-' + key);
+    var bubble = card.querySelector('.bubble');
+    card.classList.add('revived');
+    bubble.classList.add('show');
+    btn.disabled = true;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12 L9 17 L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> 已苏醒';
+    revivedCount++;
+    if (revivedCount === TOTAL) {
+      setTimeout(function(){ document.getElementById('egg-modal').classList.add('open'); }, 900);
+    }
+  });
+});
+
+/* ===== 详情模态 ===== */
+var modal = document.getElementById('modal');
+var eggModal = document.getElementById('egg-modal');
+
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeEgg(){
+  eggModal.classList.remove('open');
+}
+
+document.querySelectorAll('.detail-link').forEach(function(link){
+  link.addEventListener('click', function(){
+    var key = link.getAttribute('data-detail');
+    var d = RELICS[key];
+    if (!d) return;
+    // 复用卡片上的静态图片路径，src 保持静态引用
+    var srcImg = document.querySelector('#card-' + key + ' img[data-img="' + key + '"]');
+    var mImg = document.getElementById('modal-img');
+    if (srcImg) { mImg.src = srcImg.src; mImg.alt = d.name; }
+
+    document.getElementById('modal-era').textContent = d.era;
+    document.getElementById('modal-name').textContent = d.name;
+    document.getElementById('modal-story').innerHTML = d.story.split('。').filter(Boolean).map(function(s){ return '<p>' + s + '。</p>'; }).join('');
+    document.getElementById('modal-voice').innerHTML = '<b>文物心声</b><br>' + d.voice;
+    var factsHtml = d.facts.map(function(f){
+      return '<div class="mf"><b>' + f[0] + '</b><span>' + f[1] + '</span></div>';
+    }).join('');
+    document.getElementById('modal-facts').innerHTML = factsHtml;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+document.getElementById('egg-close').addEventListener('click', closeEgg);
+eggModal.addEventListener('click', function(e){ if (e.target === eggModal) closeEgg(); });
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') { closeModal(); closeEgg(); }
+});
+
+/* ===== 群像了解更多 ===== */
+var toastTimer = null;
+function toast(msg){
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2600);
+}
+function openRelic(name){
+  var d = RELICS[name];
+  if (!d) {
+    toast('「' + name + '」更多详情可前往吉林省博物院官网（jlmuseum.net）查阅');
+    return;
+  }
+  // 群像卡片图（静态路径，发布链路可打包）
+  var GALLERY_IMG = {
+    '契丹文八角铜镜': 'assets/gallery-qidan-mirror.jpg',
+    '苏轼《洞庭春色赋》行书卷': 'assets/gallery-sushi-scroll.jpg',
+    '张瑀《文姬归汉图》': 'assets/gallery-wenji.jpg',
+    '杨婕妤《百花图》卷': 'assets/gallery-baihua.jpg',
+    '辽石雕彩绘塔': 'assets/gallery-stupa.jpg',
+    '汉白玉耳杯': 'assets/gallery-yubei.jpg'
+  };
+  var mImg = document.getElementById('modal-img');
+  mImg.src = GALLERY_IMG[name];
+  mImg.alt = d.name;
+
+  document.getElementById('modal-era').textContent = d.era;
+  document.getElementById('modal-name').textContent = d.name;
+  document.getElementById('modal-story').innerHTML = d.story.split('。').filter(Boolean).map(function(s){ return '<p>' + s + '。</p>'; }).join('');
+  var voiceEl = document.getElementById('modal-voice');
+  if (d.voice) {
+    voiceEl.innerHTML = '<b>文物心声</b><br>' + d.voice;
+    voiceEl.style.display = '';
+  } else {
+    voiceEl.innerHTML = '';
+    voiceEl.style.display = 'none';
+  }
+  var factsHtml = d.facts.map(function(f){
+    return '<div class="mf"><b>' + f[0] + '</b><span>' + f[1] + '</span></div>';
+  }).join('');
+  document.getElementById('modal-facts').innerHTML = factsHtml;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+/* ===== 导航滚动 ===== */
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  if (window.scrollY > 40) {
+    nav.style.background = 'rgba(11,20,18,.94)';
+  } else {
+    nav.style.background = '';
+  }
+}, {passive:true});
+
+/* ===== 滚动揭示 ===== */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if (en.isIntersecting) {
+      en.target.classList.add('revealed');
+      io.unobserve(en.target);
+    }
+  });
+}, {threshold:.15});
+document.querySelectorAll('.relique-card,.g-item,.tl-row,.sec-head').forEach(function(el){
+  el.classList.add('reveal');
+  io.observe(el);
+});
+
+/* ===== 门票入场：撕票动作 + 撕纸音效 ===== */
+(function(){
+  var modal = document.getElementById('ticket-modal');
+  var ticket = document.getElementById('ticket');
+  var btn = document.getElementById('tear-btn');
+
+  // 票面日期：当日
+  var dateEl = document.getElementById('t-date');
+  if (dateEl) {
+    var now = new Date();
+    var y = now.getFullYear();
+    var m = String(now.getMonth() + 1).replace(/^(\d)$/, '0$1');
+    var d = String(now.getDate()).replace(/^(\d)$/, '0$1');
+    dateEl.textContent = y + '.' + m + '.' + d;
+  }
+
+  // 锁定背景滚动
+  document.body.style.overflow = 'hidden';
+
+  // 撕纸音效：双通道播放（Web Audio 预解码 + audio 元素兜底），兼容手机/电脑浏览器
+  // 想调整：TEAR_VOLUME=音量（1原声/0.5一半），TEAR_CUT_MS=响多久后收尾（毫秒）
+  var ripAudio = document.getElementById('rip-audio');
+  var TEAR_VOLUME = 0.55;
+  var TEAR_CUT_MS = 650;
+  var ripCtx = null, ripBuf = null;
+
+  // 通道1：页面加载时预下载并解码音频，点击时在用户手势内立即播放（手机浏览器最稳）
+  // 仅 http/https 下启用（file:// 打开时 fetch 会被浏览器拦截，自动走 audio 兜底通道）
+  try {
+    if (location.protocol === 'http:' || location.protocol === 'https:') {
+      fetch('assets/rip.mp3').then(function(r){ return r.arrayBuffer(); })
+        .then(function(buf){
+          ripCtx = new (window.AudioContext || window.webkitAudioContext)();
+          return ripCtx.decodeAudioData(buf);
+        }).then(function(decoded){
+          ripBuf = decoded;
+        }).catch(function(){ ripBuf = null; });
+    }
+  } catch(e) {}
+  // 兜底通道：audio 元素提前加载
+  if (ripAudio) { try { ripAudio.load(); } catch(e){} }
+
+  function playTearSound(){
+    // 主通道：Web Audio 播放（截短 + 降音量 + 淡出收尾）
+    if (ripCtx && ripBuf) {
+      try {
+        if (ripCtx.state === 'suspended') ripCtx.resume();
+        var src = ripCtx.createBufferSource();
+        src.buffer = ripBuf;
+        var g = ripCtx.createGain();
+        g.gain.value = TEAR_VOLUME;
+        src.connect(g);
+        g.connect(ripCtx.destination);
+        var t0 = ripCtx.currentTime;
+        src.start(t0);
+        g.gain.setValueAtTime(TEAR_VOLUME, t0);
+        g.gain.setValueAtTime(TEAR_VOLUME, t0 + TEAR_CUT_MS / 1000);
+        g.gain.linearRampToValueAtTime(0, t0 + TEAR_CUT_MS / 1000 + 0.25);
+        src.stop(t0 + TEAR_CUT_MS / 1000 + 0.28);
+        return;
+      } catch(e) { /* 主通道失败则走兜底 */ }
+    }
+    // 兜底通道：audio 元素播放（失败自动重试一次）
+    if (ripAudio) {
+      try { ripAudio.currentTime = 0; } catch(e){}
+      ripAudio.volume = TEAR_VOLUME;
+      var p = ripAudio.play();
+      if (p && p.catch) p.catch(function(){
+        setTimeout(function(){
+          var p2 = ripAudio.play();
+          if (p2 && p2.catch) p2.catch(function(){});
+        }, 150);
+      });
+      clearTimeout(ripAudio._stopT);
+      ripAudio._stopT = setTimeout(function(){
+        var f = setInterval(function(){
+          if (ripAudio.volume > 0.06) {
+            ripAudio.volume = Math.max(0, ripAudio.volume - 0.08);
+          } else {
+            clearInterval(f);
+            ripAudio.pause();
+          }
+        }, 30);
+      }, TEAR_CUT_MS);
+    }
+  }
+
+  btn.addEventListener('click', function(){
+    if (btn.disabled) return;
+    btn.disabled = true;
+    playTearSound();
+    ticket.classList.add('tearing');
+    setTimeout(function(){ modal.classList.add('closing'); }, 620);
+    setTimeout(function(){
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 1180);
+  });
+})();
+
+</script>
+
+</body>
+</html>
